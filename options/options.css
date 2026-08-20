@@ -1,0 +1,197 @@
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.shell {
+  display: flex;
+  max-width: 1080px;
+  margin: 24px auto;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+aside {
+  width: 240px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.brand strong {
+  font-size: 16px;
+  color: #191919;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px;
+  box-shadow: var(--shadow);
+}
+
+.nav-btn {
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  border-radius: 4px;
+  transition: all 0.15s ease-in-out;
+}
+.nav-btn:hover {
+  background: var(--primary-dim);
+  color: var(--primary);
+}
+.nav-btn.on {
+  background: var(--primary-dim);
+  color: var(--primary);
+  border-left-color: var(--primary);
+  font-weight: 700;
+}
+
+.aside-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+  padding: 0 4px;
+}
+
+main {
+  flex: 1;
+}
+
+.tab {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+.tab.on {
+  display: flex;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.wide {
+  grid-column: 1 / -1;
+}
+
+.drop {
+  border: 2px dashed var(--primary);
+  background: var(--primary-dim);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: background 0.15s;
+}
+.drop.over {
+  background: #d0e8ff;
+}
+.drop-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.check-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #ffffff;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+}
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hist {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #ffffff;
+}
+.hist strong {
+  font-size: 14px;
+}
+.hist .sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.steps {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 24px 24px 44px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.steps li strong {
+  font-size: 15px;
+  color: var(--text);
+}
+.steps li p {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.end {
+  justify-content: flex-end;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HireFlow — Application</title>
+  <link rel="stylesheet" href="../shared/theme.css" />
+  <link rel="stylesheet" href="review.css" />
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header mirroring LinkedIn Job Details -->
+    <header class="li-job-header">
+      <div class="header-main">
+        <div class="row header-top">
+          <span class="company-name" id="source-label">Job Posting</span>
+          <span class="pill ok" id="status-pill">Loading</span>
+        </div>
+        <h1 class="job-title-wrap">
+          <span id="source-title">—</span>
+          <svg class="verified-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#057642" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" title="Verified Post">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </h1>
+        <div class="job-meta-sub">
+          <span>Promoted by hirer</span> · <span class="green-text">Company review time is typically 1 week</span>
+        </div>
+        <div class="tags-row">
+          <span class="pill">✓ On-site</span>
+          <span class="pill">✓ Full-time</span>
+          <span class="pill ok">✓ Actively reviewing applicants</span>
+          <a class="source-link" id="source-link" target="_blank" rel="noreferrer">Open original post ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Qualifications Match Banner (matching reference screenshot) -->
+    <section class="card match-banner">
+      <div class="match-left">
+        <strong>Your profile and resume <span class="match-highlight">match</span> the required qualifications well</strong>
+        <p class="tiny muted">HireFlow AI generated email draft from your resume context.</p>
+      </div>
+      <div class="match-right">
+        <span class="pill primary">✦ Match details</span>
+      </div>
+    </section>
+
+    <!-- Original Post Snippet Card -->
+    <section class="card snippet-card">
+      <div class="card-label">Job Context &amp; Selection</div>
+      <p class="snippet" id="snippet"></p>
+    </section>
+
+    <!-- Progress Status Block -->
+    <section class="status-block" id="progress">
+      <div class="spinner"></div>
+      <div>
+        <div class="progress-title" id="progress-title">Drafting your email…</div>
+        <div class="tiny muted" id="progress-sub">AI is tailoring your cover letter.</div>
+      </div>
+    </section>
+
+    <!-- Error Box -->
+    <section id="error-box" class="card error hidden"></section>
+
+    <!-- Draft Form -->
+    <form id="draft-form" class="card form-card hidden">
+      <div class="field">
+        <label for="to">To (Recipient Email)</label>
+        <input id="to" type="email" autocomplete="off" placeholder="hiring@company.com" />
+      </div>
+      <div class="field">
+        <label for="subject">Subject Line</label>
+        <input id="subject" type="text" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="body">Email Body</label>
+        <textarea id="body" rows="12"></textarea>
+      </div>
+      <p class="tiny muted" id="attach-note"></p>
+    </form>
+
+    <!-- Auto-send Countdown Bar -->
+    <section id="countdown" class="countdown hidden">
+      <div class="count-top">
+        <span>Sending via Gmail in <b id="count-num">8</b>s</span>
+        <button type="button" class="btn ghost" id="pause-btn">Pause</button>
+      </div>
+      <div class="bar"><i id="count-bar"></i></div>
+    </section>
+
+    <!-- Footer Action Bar -->
+    <footer class="action-footer">
+      <button type="button" class="btn danger" id="cancel-btn">Cancel</button>
+      <div class="grow"></div>
+      <button type="button" class="btn ghost hidden" id="retry-other">Retry other AI</button>
+      <button type="button" class="btn ghost hidden" id="retry-btn">Retry</button>
+      <button type="button" class="btn hidden" id="draft-btn">Save Gmail draft</button>
+      <button type="button" class="btn primary hidden" id="send-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: middle;">
+          <path d="M14.05 1h-12.1C1.42 1 1 1.42 1 1.95v12.1c0 .53.42.95.95.95h12.1c.53 0 .95-.42.95-.95V1.95c0-.53-.42-.95-.95-.95zM5.58 13H3.45V6.44h2.13V13zm-1.07-7.46c-.68 0-1.23-.55-1.23-1.23 0-.68.55-1.23 1.23-1.23.68 0 1.23.55 1.23 1.23 0 .68-.55 1.23-1.23 1.23zm9.54 7.46h-2.13V9.66c0-.8-.01-1.83-1.12-1.83-1.12 0-1.29.87-1.29 1.77V13H7.38V6.44h2.04v.9h.03c.28-.54 1-.1 2.01-.1 2.15 0 2.55 1.42 2.55 3.26V13z"/>
+        </svg>
+        <span>Send now</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="../shared/boot.js"></script>
+  <script src="../shared/defaults.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>

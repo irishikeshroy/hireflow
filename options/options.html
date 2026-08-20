@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HireFlow Settings</title>
+  <link rel="stylesheet" href="../shared/theme.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand">
+        <svg width="32" height="32" viewBox="0 0 16 16" fill="#0a66c2" style="flex:none;">
+          <path d="M14.05 1h-12.1C1.42 1 1 1.42 1 1.95v12.1c0 .53.42.95.95.95h12.1c.53 0 .95-.42.95-.95V1.95c0-.53-.42-.95-.95-.95zM5.58 13H3.45V6.44h2.13V13zm-1.07-7.46c-.68 0-1.23-.55-1.23-1.23 0-.68.55-1.23 1.23-1.23.68 0 1.23.55 1.23 1.23 0 .68-.55 1.23-1.23 1.23zm9.54 7.46h-2.13V9.66c0-.8-.01-1.83-1.12-1.83-1.12 0-1.29.87-1.29 1.77V13H7.38V6.44h2.04v.9h.03c.28-.54 1-.1 2.01-.1 2.15 0 2.55 1.42 2.55 3.26V13z"/>
+        </svg>
+        <div>
+          <div class="kicker">HireFlow</div>
+          <strong>Settings</strong>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn on" data-tab="profile">Profile &amp; resume</button>
+        <button class="nav-btn" data-tab="prefs">Preferences</button>
+        <button class="nav-btn" data-tab="history">History</button>
+        <button class="nav-btn" data-tab="help">How it works</button>
+      </nav>
+      <p class="aside-note">Everything stays on this computer. HireFlow only pastes into tabs you already use — ChatGPT, Gemini, and Gmail.</p>
+    </aside>
+
+    <main>
+      <section class="tab on" id="tab-profile">
+        <header class="page-head">
+          <div>
+            <div class="kicker">Step 1</div>
+            <h1>Your profile</h1>
+            <p class="muted">Uploaded once. Used every time you select a job post.</p>
+          </div>
+          <span class="pill" id="setup-pill">Incomplete</span>
+        </header>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" placeholder="Priya Sharma" />
+          </div>
+          <div class="field">
+            <label for="headline">Target role / headline</label>
+            <input id="headline" placeholder="Backend engineer · Java, Kafka" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" placeholder="+91 …" />
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" placeholder="Jaipur, India · open to remote" />
+          </div>
+          <div class="field wide">
+            <label for="linkedinUrl">LinkedIn or portfolio URL</label>
+            <input id="linkedinUrl" placeholder="https://www.linkedin.com/in/…" />
+          </div>
+        </div>
+
+        <div class="card drop" id="drop">
+          <input id="pdf" type="file" accept="application/pdf,.pdf" hidden />
+          <div class="drop-inner">
+            <div>
+              <strong id="pdf-name">Upload your resume PDF</strong>
+              <p class="muted tiny" id="pdf-meta">Text is extracted locally. The PDF is also stored on this computer so HireFlow can attach it to Gmail.</p>
+            </div>
+            <button type="button" class="btn primary" id="pick-pdf">Choose PDF</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="resumeText">Extracted resume text</label>
+          <textarea id="resumeText" rows="12" placeholder="PDF text appears here. You can edit it."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="extraNotes">Notes for the AI (optional)</label>
+          <textarea id="extraNotes" rows="4" placeholder="Notice period, salary band to avoid, visa status, roles you will not take, preferred greeting…"></textarea>
+        </div>
+
+        <div class="row end">
+          <span class="tiny muted" id="save-msg"></span>
+          <button type="button" class="btn primary" id="save-profile">Save profile</button>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-prefs">
+        <header class="page-head">
+          <div>
+            <div class="kicker">Step 2</div>
+            <h1>How HireFlow should behave</h1>
+          </div>
+        </header>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="provider">Default AI</label>
+            <select id="provider">
+              <option value="chatgpt">ChatGPT (chatgpt.com)</option>
+              <option value="gemini">Gemini (gemini.google.com)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tone">Email tone</label>
+            <select id="tone">
+              <option value="professional">Professional</option>
+              <option value="concise">Concise</option>
+              <option value="warm">Warm</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sendDelaySec">Auto-send delay (seconds)</label>
+            <input id="sendDelaySec" type="number" min="3" max="30" />
+          </div>
+          <div class="field">
+            <label for="gmailAccountIndex">Gmail account index</label>
+            <input id="gmailAccountIndex" type="number" min="0" max="9" />
+            <p class="tiny muted">0 is the first Google account in the browser. Use 1 if you send from a second inbox.</p>
+          </div>
+        </div>
+
+        <div class="card check-card">
+          <label class="check"><input type="checkbox" id="attachResume" checked /> Attach the resume PDF to every outgoing email</label>
+          <label class="check"><input type="checkbox" id="closeAiTab" /> Close the AI tab after the draft is captured (keep off so HireFlow can reuse it)</label>
+          <label class="check"><input type="checkbox" id="confirmOnGmail" /> Do not click Send — leave Gmail compose open</label>
+          <p class="tiny muted" style="margin-top:8px;">ChatGPT / Gemini / Gmail always run in the background. HireFlow will not pull you off LinkedIn, and it reuses tabs that are already open.</p>
+        </div>
+
+        <div class="row end">
+          <button type="button" class="btn" id="sample-btn">Run a sample posting</button>
+          <button type="button" class="btn primary" id="save-prefs">Save preferences</button>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-history">
+        <header class="page-head">
+          <div>
+            <div class="kicker">Log</div>
+            <h1>Applications</h1>
+          </div>
+          <button type="button" class="btn danger" id="clear-history">Clear history</button>
+        </header>
+        <div id="history-list" class="history"></div>
+      </section>
+
+      <section class="tab" id="tab-help">
+        <header class="page-head">
+          <div>
+            <div class="kicker">Guide</div>
+            <h1>How to use HireFlow</h1>
+          </div>
+        </header>
+        <ol class="steps">
+          <li>
+            <strong>Stay logged in</strong>
+            <p class="muted">Open LinkedIn, Gmail, and ChatGPT or Gemini in Chrome and sign in as you normally do. HireFlow never asks for those passwords.</p>
+          </li>
+          <li>
+            <strong>Upload your resume here</strong>
+            <p class="muted">PDF only. We extract the text on this page and keep it in <code>chrome.storage.local</code>.</p>
+          </li>
+          <li>
+            <strong>On a job post, select the text or click "Apply"</strong>
+            <p class="muted">Include the hiring email if the post has one. Click the injected <strong>Apply</strong> button on LinkedIn posts or select text → right-click → <em>HireFlow: draft &amp; send application</em>. Shortcut: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd> (Mac: ⌘⇧Y).</p>
+          </li>
+          <li>
+            <strong>Let the AI tab work</strong>
+            <p class="muted">HireFlow talks to the ChatGPT or Gemini tab you already have open (or opens one in the background). You stay on LinkedIn.</p>
+          </li>
+          <li>
+            <strong>Review, then Gmail sends</strong>
+            <p class="muted">A review window shows the draft with an auto-send countdown. Pause, edit, send now, or keep a Gmail draft. After the countdown HireFlow opens Gmail compose and clicks Send.</p>
+          </li>
+        </ol>
+        <div class="card">
+          <strong>If something breaks</strong>
+          <p class="muted tiny" style="margin-top:8px">ChatGPT, Gemini, and Gmail change their pages. If HireFlow cannot find the composer, refresh that tab, make sure you are logged in, and hit Retry. You can switch AI from the review window. If Send is not clicked, the compose window stays open so nothing is lost.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../shared/boot.js"></script>
+  <script src="../shared/defaults.js"></script>
+  <script src="../shared/extract.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

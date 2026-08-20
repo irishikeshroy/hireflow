@@ -1,0 +1,180 @@
+body {
+  width: 350px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.header-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #191919;
+}
+
+.card-header-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+#job-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 2px;
+}
+
+.actions {
+  margin-top: 12px;
+}
+
+.section-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.recent-item {
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.recent-item:first-child {
+  border-top: none;
+  padding-top: 2px;
+}
+.recent-item strong {
+  font-size: 13px;
+  color: var(--text);
+  display: block;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.queue-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.queue-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.tiny-btn {
+  padding: 2px 8px !important;
+  font-size: 11px !important;
+}
+
+.queue-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.queue-badge {
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  flex: none;
+}
+
+.queue-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.queue-details strong {
+  font-size: 13px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.micro-pill {
+  padding: 1px 6px !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+.pill.teal {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.queue-remove-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: none;
+  line-height: 1;
+}
+.queue-remove-btn:hover {
+  background: var(--danger-dim);
+  color: var(--danger);
+}

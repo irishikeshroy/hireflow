@@ -1,0 +1,84 @@
+{
+  "manifest_version": 3,
+  "name": "HireFlow",
+  "version": "1.1.0",
+  "description": "Select a job post, draft a tailored email from your resume with ChatGPT or Gemini, then send it from Gmail.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "HireFlow",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "tabs",
+    "scripting",
+    "notifications",
+    "alarms",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://mail.google.com/*",
+    "https://www.linkedin.com/*",
+    "https://linkedin.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["shared/boot.js", "shared/dom.js", "shared/hud.js", "content/chatgpt.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["shared/boot.js", "shared/dom.js", "shared/hud.js", "content/gemini.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["shared/boot.js", "shared/defaults.js", "shared/storage.js", "shared/dom.js", "shared/hud.js", "content/gmail.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.linkedin.com/*", "https://linkedin.com/*"],
+      "js": ["shared/boot.js", "shared/extract.js", "content/linkedin.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "apply-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Send the current selection to HireFlow"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "vendor/*"],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

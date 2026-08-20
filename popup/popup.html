@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HireFlow</title>
+  <link rel="stylesheet" href="../shared/theme.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="popup-header">
+    <div class="header-brand">
+      <svg width="24" height="24" viewBox="0 0 16 16" fill="#0a66c2" style="flex:none;">
+        <path d="M14.05 1h-12.1C1.42 1 1 1.42 1 1.95v12.1c0 .53.42.95.95.95h12.1c.53 0 .95-.42.95-.95V1.95c0-.53-.42-.95-.95-.95zM5.58 13H3.45V6.44h2.13V13zm-1.07-7.46c-.68 0-1.23-.55-1.23-1.23 0-.68.55-1.23 1.23-1.23.68 0 1.23.55 1.23 1.23 0 .68-.55 1.23-1.23 1.23zm9.54 7.46h-2.13V9.66c0-.8-.01-1.83-1.12-1.83-1.12 0-1.29.87-1.29 1.77V13H7.38V6.44h2.04v.9h.03c.28-.54 1-.1 2.01-.1 2.15 0 2.55 1.42 2.55 3.26V13z"/>
+      </svg>
+      <div>
+        <strong class="brand-title">HireFlow</strong>
+        <div class="kicker">Easy Apply Copilot</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="card" id="setup-card">
+    <div class="row">
+      <span class="pill" id="ready-pill">Checking</span>
+      <span class="tiny muted grow" id="ready-text"></span>
+    </div>
+  </section>
+
+  <section class="card job-card-wrap" id="job-card">
+    <div class="card-header-label">
+      <span>Current Draft</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#057642" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
+    <div id="job-title">Nothing in flight</div>
+    <div class="tiny muted" id="job-sub">Select a posting, then right-click → HireFlow.</div>
+    <div class="row actions">
+      <button class="btn primary hidden" id="open-review">Open review</button>
+      <button class="btn danger hidden" id="cancel-job">Cancel</button>
+    </div>
+  </section>
+
+  <section class="card" id="queue-card">
+    <div class="queue-header">
+      <div class="queue-title-wrap">
+        <span class="queue-title">Apply Queue</span>
+        <span class="pill ok" id="queue-count">0 queued</span>
+      </div>
+      <button type="button" class="btn ghost tiny-btn" id="clear-queue-btn">Clear all</button>
+    </div>
+    <div id="queue-list" class="queue-items-list"></div>
+  </section>
+
+  <section class="card">
+    <div class="tiny muted section-label">Recent Applications</div>
+    <div id="recent"></div>
+  </section>
+
+  <footer>
+    <button class="btn ghost" id="open-options">⚙ Settings</button>
+    <span class="tiny muted">Ctrl+Shift+Y</span>
+  </footer>
+
+  <script src="../shared/boot.js"></script>
+  <script src="../shared/defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
